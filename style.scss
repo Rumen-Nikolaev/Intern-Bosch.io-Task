@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$productblock: #295677;
+$colorBlack: #000000;
+$colorWhite: #ffffff;
+$textColor-h3: #3b3b3b;
+$textColor-h4: #3b3b3b;
+$textColor-p: #555555;
+$buttonColors: #295677;
+$iconXcolor: #707070;
+$starsOtherColor: #cfcdc8;
+$starsYellowColor: #f1c34d;
+$starsSpan: #555555;
+
+@mixin flexCenter($direction) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container-products {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 100px;
+  row-gap: 35px;
+
+  h3 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-top: 10px;
+    font-weight: 600;
+    font-style: normal;
+    color: $colorBlack;
+  }
+}
+
+.box-container {
+  @include flexCenter(column);
+}
+
+.box {
+  width: 240px;
+  height: 190px;
+  border-radius: 10px;
+  background-color: $productblock;
+  cursor: pointer;
+}
+
+.additional-info {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.additional-info .info {
+  display: none;
+  text-align: center;
+  background: $colorWhite;
+  border-radius: 10px;
+  position: relative;
+  width: 50rem;
+  height: 35rem;
+  overflow: hidden;
+}
+
+.additional-info .info .info-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.additional-info .info-content .left-section {
+  width: 50%;
+  background-color: $productblock;
+  height: 100%;
+  position: absolute;
+}
+
+.additional-info .info-content .right-section {
+  max-width: 50%;
+  max-height: 100%;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  padding: 20px;
+  left: 50%;
+}
+
+.additional-info .info.active {
+  display: inline-block;
+}
+
+.additional-info .info .mark-x {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  color: $iconXcolor;
+  font-size: 1.2rem;
+}
+
+.additional-info .info h3 {
+  color: $textColor-h3;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.stars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  gap: 2.5px;
+}
+
+.additional-info .info .stars .mark-star {
+  font-size: 1.3rem;
+  color: #f1c34d;
+}
+
+.additional-info .info .stars .sku {
+  color: $starsSpan;
+  font-weight: 400;
+  font-size: 0.8rem;
+  margin: 9.5px 10px;
+}
+
+.additional-info .info .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  margin-top: 20px;
+  h4 {
+    font-weight: 700;
+    color: $textColor-h4;
+  }
+  p {
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 0.938rem;
+    text-align: left;
+    color: $textColor-p;
+  }
+}
+
+.additional-info .info button {
+  margin: 150px auto;
+  border-radius: 10px;
+  padding: 12px 120px;
+  background-color: transparent;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 22px;
+  text-transform: uppercase;
+  border: 3px solid $buttonColors;
+  color: $buttonColors;
+  cursor: pointer;
+}
